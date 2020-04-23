@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<h1> {{user}} </h1>
+<table class="table" border="0.5px">
+<tr>
+<th>
+<h1>
+Item
+</h1>
+</th>
+<th>
+<h1>
+Qty
+</h1>
+</th>
+<th>
+<h1>
+Price Per Qty
+</h1>
+</th>
+<th>
+<h1>
+Total
+</h1>
+</th>
+</tr>
+{% for i in billlist %}
+<tr>
+<td> <h1>{{ i.item }}</h1> </td>
+<td><h1> {{ i.qty }} </h1></td>
+<td> <h1>{{ i.price }} </h1></td>
+<td><h1> {{ i.total }} </h1></td>
+</tr>
+{% endfor %}
+</table>
+<h1 align="right"> Total: {{total}} </h1>

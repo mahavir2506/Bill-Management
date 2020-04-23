@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block body_block %}
+{% for i in item %}
+	<a href="{% url 'itemselected' pk=i.id %}"> {{i.name}} </a>
+{% endfor %}
+{% endblock %}

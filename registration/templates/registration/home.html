@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block nav %}
+ <ul class="nav navbar-nav navbar-right">
+<li> {{username}} </br> {{mobno}} </li>
+</ul>
+{% endblock %}
+{% block body_block %}
+<div class="container">
+<form action="{% url 'home' %}" method="POST">
+{% csrf_token %}
+<label for="name">Name   </label>
+<input type="text" name="cname" required>
+<label for="item"> item   </label>
+<select name="itemselect">
+{% for i in item %}
+<option> {{i}} </option>
+{% endfor %}
+</select>
+<label>  Qty </label>
+<input type="number" name="qty">
+<input type="submit" name="submit">
+</form>
+</div>
+<table class="table">
+<tr>
+<th>
+Item
+</th>
+<th>
+Qty
+</th>
+<th>
+Price Per Qty
+</th>
+<th>
+Total
+</th>
+</tr>
+{% for i in billlist %}
+<tr>
+<td> {{ i.item }} </td>
+<td> {{ i.qty }} </td>
+<td> {{ i.price }} </td>
+<td> {{ i.total }} </td>
+</tr>
+{% endfor %}
+</table>
+<a href="{% url 'print' %}"> Print </a>
+{% endblock %}
